@@ -1,1 +1,8 @@
-{}
+{
+    "baseUrl":"http://automationpractice.com/",
+    "viewportWidth": 1280,
+    "viewportHeight": 770,
+    "retries": 2,
+    "chromeWebSecurity": false
+             
+}

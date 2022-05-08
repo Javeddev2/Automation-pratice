@@ -8,7 +8,7 @@ const login = require('../fixtures/valid.json')
 describe('Automation_Assignment-1', () => {
     before(() => {
 
-        cy.visit('http://automationpractice.com/')
+        cy.visit('/')
 
     })
 
