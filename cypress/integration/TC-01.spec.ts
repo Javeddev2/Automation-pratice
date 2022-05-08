@@ -1,8 +1,8 @@
 /// <reference types="cypress"/>
-import POM from "../POM/POM"
+import TC1 from "../POM/TC1"
 
-const register = new POM()
-const Element = register.elements
+const firstpage = new TC1()
+const Element = firstpage.elements
 const login = require('../fixtures/valid.json')
 
 describe('Automation_Assignment-1', () => {
@@ -12,7 +12,7 @@ describe('Automation_Assignment-1', () => {
 
     })
 
-    it('Three test cases', () => {
+    it('TC01-Search with Your Name', () => {
 
         Element.SearchInput()
             .type(login.name)
@@ -33,49 +33,10 @@ describe('Automation_Assignment-1', () => {
             .should('include.text', login.error)
             .should('include.text', login.name)
 
-        Element.Dresses()
-            .click()
-
-        cy.url().should('include', login.category)
-
-        Element.Smallsize()
-            .click()
-            .should('be.checked')
-
-        cy.url().should('include', login.size)
-
-        Element.Sizequantity().invoke('text').then(($ele) => {
-
-            const Sizecount = $ele.replace(/[^0-9*$. ]/g, '')
-
-            Element.Products().should('have.lengthOf', Sizecount)
-
-
-
-        })
-
-            Element.Firstproduct().invoke('text').then(($el) => {
-            const productprice = $el.replace(/[^a-zA-Z0-9*$. ]/g, '')
-
-            Element.Firstproductcart()
-                .click({ force: true })
-
-            Element.Cartpopup()
-                .should('be.visible')
-                .should('have.length', '1')
-
-
-            Element.cartprice().invoke('text').then(($ele) => {
-                let priceoncart = $ele
-                expect(productprice).to.equal(priceoncart)
-
-
-            })
-
-        })
-
-
 
     })
 
+
+
 })
+
