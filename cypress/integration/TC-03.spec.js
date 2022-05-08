@@ -23,6 +23,8 @@ describe('Automation_Assignment-1', () => {
             Element.Firstproductcart()
                 .click({ force: true })
 
+            cy.wait(3000)
+
             Element.Cartpopup()
                 .should('be.visible')
                 .should('have.length', '1')
